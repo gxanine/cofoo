@@ -2,7 +2,7 @@
 - [x] Create initial app with vite
 - [x] Create repository
 - [x] Initially plan the works
-- [ ] Clean up the initial vite app
+- [x] Clean up the initial vite app
 - [ ] Set up tailwindcss
 - [ ] Create Menu component
 - [ ] Create MenuItem component
