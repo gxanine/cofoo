@@ -1,33 +1,13 @@
-import Menu from "./components/Menu"
+import {Outlet} from "react-router-dom"
 
 function App() {
 
-  const menuItems = [
-    {
-      id: 123,
-      name: "Coffee",
-      description: "A fresh and delicious black coffee",
-      price: 5.00
-    },
-    {
-      id: 124,
-      name: "PBJ",
-      description: "Peanut butter jelly time!",
-      price: 3.45
-    },
-    {
-      id: 125,
-      name: "Carrot cake",
-      description: "Ordering here is a piece of cake",
-      price: 6.20
-    }
-  ]
 
   return (
     <div className="">
       <div className="text-center font-extralight text-8xl py-5">cofoo</div>
       <div className="max-w-xl border border-stone-400 mx-auto">
-        <Menu items={menuItems}/>
+        <Outlet />
       </div>
     </div>
   )

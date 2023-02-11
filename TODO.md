@@ -6,7 +6,7 @@
 - [x] Set up tailwindcss
 - [x] Create Menu component
 - [x] Create MenuItem component
-- [ ] Set up react-router-dom
+- [x] Set up react-router-dom
 - [ ] Create ItemDetail page
 - [ ] Create a simple generic Button component
 - [ ] Create 'add to cart' (AddButton) button component
