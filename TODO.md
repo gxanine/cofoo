@@ -3,7 +3,7 @@
 - [x] Create repository
 - [x] Initially plan the works
 - [x] Clean up the initial vite app
-- [ ] Set up tailwindcss
+- [x] Set up tailwindcss
 - [ ] Create Menu component
 - [ ] Create MenuItem component
 - [ ] Set up react-router-dom
