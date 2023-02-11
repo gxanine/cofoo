@@ -5,7 +5,7 @@
 - [x] Clean up the initial vite app
 - [x] Set up tailwindcss
 - [x] Create Menu component
-- [ ] Create MenuItem component
+- [x] Create MenuItem component
 - [ ] Set up react-router-dom
 - [ ] Create ItemDetail page
 - [ ] Create a simple generic Button component
