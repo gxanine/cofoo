@@ -4,7 +4,7 @@
 - [x] Initially plan the works
 - [x] Clean up the initial vite app
 - [x] Set up tailwindcss
-- [ ] Create Menu component
+- [x] Create Menu component
 - [ ] Create MenuItem component
 - [ ] Set up react-router-dom
 - [ ] Create ItemDetail page
