@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getItemById } from "../data/menuItems";
 import { classNames } from "../utils/classes";
 import CartItem from "./CartItem";
@@ -6,6 +7,16 @@ import Button from "./ui/Button";
 
 function CartOverlay({ cart }) {
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const [isCheckout, setIsCheckout] = useState(
+    location.pathname === "/checkout"
+  );
+
+  useEffect(() => {
+    setIsCheckout(location.pathname === "/checkout");
+  }, [location]);
 
   useEffect(() => {
     setTotal(calculateCartTotalPrice(cart));
@@ -41,7 +52,10 @@ function CartOverlay({ cart }) {
               {total.toFixed(2)} zł
             </div>
             <Button
-              className="relative flex gap-2"
+              className={classNames(
+                "relative flex gap-2",
+                isCheckout ? "hidden" : "block"
+              )}
               small
               neutral
               onClick={viewCartHandler}
@@ -66,7 +80,19 @@ function CartOverlay({ cart }) {
 
               {cartVisible ? "Hide cart" : "View cart"}
             </Button>
-            <Button small>Go to checkout</Button>
+            <Button
+              className={classNames(
+                "relative",
+                isCheckout ? "hidden" : "block"
+              )}
+              small
+              onClick={() => {
+                setCartVisible(false);
+                navigate("/checkout");
+              }}
+            >
+              Go to checkout
+            </Button>
           </div>
         </div>
       </div>
