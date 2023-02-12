@@ -11,8 +11,8 @@
 - [x] Create a simple generic Button component
 - [x] Create 'add to cart' (AddButton) button component
 - [x] Create cart context
-- [ ] Create simple 'cart state' component
-- [ ] Create a ItemModification component for modifying item before
+- [x] Create simple 'cart state' component
+- [x] Allow removing items from the cart
       adding to the cart
-- [ ] Create a cart preview
-- [ ] Allow removing items from the cart
+- [x] Create a cart preview
+- [ ] Create a ItemModification component for modifying item before
