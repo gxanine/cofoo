@@ -1,6 +1,14 @@
+import {useNavigate} from "react-router-dom";
+
 function MenuItem({id, name, description, price, ...props}) {
+  
+  const navigate = useNavigate();
+
+  function onClickHandler(e) {
+    navigate(`/item/${id}`);
+  }
   return (
-    <div className="flex p-2 hover:bg-stone-500/10 cursor-pointer">
+    <div className="flex p-2 hover:bg-stone-500/10 cursor-pointer" onClick={onClickHandler}>
       <div className="flex-1">
         <div className="flex gap-2">
           <div className="font-bold">

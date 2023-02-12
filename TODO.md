@@ -7,7 +7,7 @@
 - [x] Create Menu component
 - [x] Create MenuItem component
 - [x] Set up react-router-dom
-- [ ] Create ItemDetail page
+- [x] Create ItemDetail page
 - [ ] Create a simple generic Button component
 - [ ] Create 'add to cart' (AddButton) button component
 - [ ] Create cart context
