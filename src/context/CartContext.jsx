@@ -28,6 +28,19 @@ export function useCartDispatch() {
 function cartReducer(cart, action) {
   switch (action.type) {
     case "added": {
+      // Check if item already exists
+      let existing = cart.find((item) => item.itemId === action.itemId);
+      if (existing)
+        return cart.map((item) => {
+          if (item.itemId === action.itemId)
+            return {
+              ...item,
+              qty: item.qty + action.qty,
+            };
+          return item;
+        });
+
+      // Create new if one doesn't already exist
       return [
         ...cart,
         {
@@ -36,6 +49,23 @@ function cartReducer(cart, action) {
           qty: action.qty,
         },
       ];
+    }
+    case "removed": {
+      // Delete if qty falls below 0
+      let existing = cart.find((item) => item.itemId === action.itemId);
+      if (existing && existing.qty - action.qty <= 0)
+        return cart.filter((item) => item.id !== existing.id);
+
+      console.log("not removed")
+      // Remove qty
+      return cart.map((item) => {
+        if (item.itemId === action.itemId) 
+          return {
+            ...item,
+            qty: item.qty - action.qty,
+          };
+        return item;
+      });
     }
     case "deleted": {
       return cart.filter((item) => item.id !== action.id);
