@@ -15,5 +15,7 @@
 - [x] Allow removing items from the cart
       adding to the cart
 - [x] Create a cart preview
+- [ ] Add a reducer for increasing qty
+- [ ] Add a reducer for decreasing qty
 - [ ] When adding the same items increase qty
 - [ ] Create a ItemModification component for modifying item before
