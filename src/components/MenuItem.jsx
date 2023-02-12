@@ -6,7 +6,7 @@ import CartAdder from "./CartAdder";
 import Button from "./ui/Button";
 import NumberInput from "./ui/NumberInput";
 
-function MenuItem({ id, name, description, price, active, ...props }) {
+function MenuItem({ id, name, description, price, image, active, ...props }) {
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const [qty, setQty] = useState(0);
@@ -64,7 +64,22 @@ function MenuItem({ id, name, description, price, active, ...props }) {
       onClick={onClickHandler}
       ref={containerRef}
     >
-      <div className="flex">
+      <div className="flex gap-3">
+        <div
+          className={classNames(
+            "flex-grow-0",
+            "h-16 w-24",
+            "shadow-inner opacity-80",
+            "rounded-lg",
+            "overflow-hidden",
+            "shadow"
+          )}
+        >
+          <img
+            className="object-cover h-full w-full"
+            src={"/item-photos/" + image}
+          />
+        </div>
         <div className="flex-1">
           <div className="flex gap-2">
             <div className="font-bold">{name}</div>
