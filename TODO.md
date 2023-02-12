@@ -13,8 +13,7 @@
 - [x] Create cart context
 - [x] Create simple 'cart state' component
 - [x] Allow removing items from the cart
-      adding to the cart
 - [x] Create a cart preview
 - [x] Modify add reducer to increasing qty
 - [x] Add a reducer for decreasing qty
-- [ ] Create a ItemModification component for modifying item before
+- [ ] Create a ItemModification component for modifying item before adding to the cart
