@@ -13,6 +13,8 @@ function CartPopupItem({ id, itemId, qty, hideCart }) {
   const navigate = useNavigate();
 
   function deleteHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
     cartDispatch({
       type: 'deleted',
       id: id

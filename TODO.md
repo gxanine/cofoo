@@ -19,5 +19,5 @@
 - [x] Improve MenuItem component
 - [x] Improve ItemDetail component
 - [x] Improve cart UI (suggestion: get rid of the popup and add an overlay)
-- [ ] Correct cart item click (clicking on delete navigates to item's detail)
+- [x] Correct cart item click (clicking on delete navigates to item's detail)
 - [ ] Create a ItemModification component for modifying item before adding to the cart
