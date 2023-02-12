@@ -10,7 +10,7 @@ function ItemDetail() {
 
   const cartDispatch = useCartDispatch();
   const cart = useCart();
-  const existsInCart = cart.find(i => i.itemId === id) ? true : false;
+  const existsInCart = cart.find((i) => i.itemId === id) ? true : false;
 
   function addButtonHandler() {
     cartDispatch({
@@ -27,6 +27,13 @@ function ItemDetail() {
     })
   }
 
+  function deleteAllHandler() {
+    cartDispatch({
+      type: "deleted",
+      id: cart.find((i) => i.itemId === id).id,
+    });
+  }
+
   return (
     <div className="flex flex-col">
       <div className="flex text-3xl gap-2">
@@ -40,6 +47,19 @@ function ItemDetail() {
          <Button disabled={!existsInCart} danger onClick={decreaseButtonHandler}>－ Remove</Button>
           <Button onClick={addButtonHandler}>＋ Add to cart</Button>
         </div>
+        {existsInCart && (
+          <div className="opacity-30 text-center">
+            <div>
+              (Already in cart: {cart.find((i) => i.itemId === id)?.qty ?? 0})
+            </div>
+            <button
+              className="text-red-600 hover:underline"
+              onClick={deleteAllHandler}
+            >
+              delete all
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
