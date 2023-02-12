@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import {getItemById} from "../data/menuItems";
 import { classNames } from "../utils/classes";
-import CartPopupItem from "./CartPopupItem";
+import CartItem from "./CartItem";
 import Button from "./ui/Button";
 
 function CartOverlay({ cart }) {
@@ -70,7 +70,7 @@ function CartOverlay({ cart }) {
       )}
       >
           {cart.length > 0 &&
-            cart.map((el) => <CartPopupItem key={el.id} {...el} />)}
+            cart.map((el) => <CartItem key={el.id} {...el} />)}
           {cart.length === 0 && (
             <div className={classNames("text-center",
             "h-full flex flex-col justify-center items-center",
