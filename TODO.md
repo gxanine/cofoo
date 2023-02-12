@@ -17,4 +17,5 @@
 - [x] Modify add reducer to increasing qty
 - [x] Add a reducer for decreasing qty
 - [x] Improve MenuItem component
+- [ ] Improve ItemDetail component
 - [ ] Create a ItemModification component for modifying item before adding to the cart
