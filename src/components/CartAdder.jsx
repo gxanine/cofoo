@@ -4,19 +4,24 @@ import { classNames } from "../utils/classes";
 import Button from "./ui/Button";
 import NumberInput from "./ui/NumberInput";
 
-function CartAdder({ itemId, removable, children }) {
+function CartAdder({ itemId, removable, children, customisations }) {
   const [qty, setQty] = useState(1);
 
   const cartDispatch = useCartDispatch();
   const cart = useCart();
   const existsInCart = cart.find((i) => i.itemId === itemId) ? true : false;
-  const qtyAlreadyInCart = cart.find((i) => i.itemId === itemId)?.qty ?? 0;
+  const qtyAlreadyInCart =
+    cart
+      .filter((i) => i.itemId === itemId)
+      .map((item) => item.qty)
+      .reduce((a, b) => a + b, 0) ?? 0;
 
   function addHandler() {
     cartDispatch({
       type: "added",
       itemId: itemId,
       qty: qty,
+      customisations: customisations ?? [],
     });
 
     // Reset qty field after adding the item
@@ -57,9 +62,11 @@ function CartAdder({ itemId, removable, children }) {
         >
           ＋ Add to cart
         </Button>
-        {removable && <Button small disabled={!existsInCart} danger onClick={removeHandler}>
-          － Remove
-        </Button>}
+        {removable && (
+          <Button small disabled={!existsInCart} danger onClick={removeHandler}>
+            － Remove
+          </Button>
+        )}
         {children}
       </div>
       <div className="opacity-40">

@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { compareCartItems } from "../utils/items";
 
 const CartContext = createContext([]);
 const CartDispatchContext = createContext(null);
@@ -27,10 +28,16 @@ function cartReducer(cart, action) {
   switch (action.type) {
     case "added": {
       // Check if item already exists
-      let existing = cart.find((item) => item.itemId === action.itemId);
+      let newItem = {
+        id: Date.now(),
+        itemId: action.itemId,
+        qty: action.qty,
+        customisations: action.customisations,
+      };
+      let existing = cart.find((item) => compareCartItems(item, newItem));
       if (existing)
         return cart.map((item) => {
-          if (item.itemId === action.itemId)
+          if (item.id === existing.id)
             return {
               ...item,
               qty: item.qty + action.qty,
@@ -39,14 +46,7 @@ function cartReducer(cart, action) {
         });
 
       // Create new if one doesn't already exist
-      return [
-        ...cart,
-        {
-          id: Date.now(),
-          itemId: action.itemId,
-          qty: action.qty,
-        },
-      ];
+      return [...cart, newItem];
     }
     case "removed": {
       // Delete if qty falls below 0

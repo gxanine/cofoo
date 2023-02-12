@@ -1,7 +1,9 @@
+import {useState} from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getItemById } from "../data/menuItems";
 import { classNames } from "../utils/classes";
 import CartAdder from "./CartAdder";
+import ItemCustomisationList from "./ItemCustomisationList";
 import Button from "./ui/Button";
 
 function ItemDetail() {
@@ -11,6 +13,8 @@ function ItemDetail() {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [customisations, setCustomisations] = useState([]);
 
   function goBackHandler() {
     // If previous was home, simply go back
@@ -48,9 +52,10 @@ function ItemDetail() {
         <div className="">{price.toFixed(2)} zł</div>
       </div>
       <div className="opacity-50">{description}</div>
+      <ItemCustomisationList itemId={id} onChange={setCustomisations}/>
       <div>
         <div className="flex justify-center my-5 gap-2">
-          <CartAdder itemId={id} />
+          <CartAdder itemId={id} customisations={customisations}/>
         </div>
       </div>
     </div>
