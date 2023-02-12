@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import {useCartDispatch} from "../context/CartContext";
 import { getItemById } from "../data/menuItems";
 import Button from "./ui/Button";
 
@@ -7,8 +8,14 @@ function ItemDetail() {
 
   const { name, description, price } = getItemById(id) ?? {};
 
+  const cartDispatch = useCartDispatch();
+
   function addButtonHandler() {
-    console.log("Adding the item to the cart");
+    cartDispatch({
+      type: 'added',
+      itemId: id,
+      qty: 1
+    })
   }
 
   return (
