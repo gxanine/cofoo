@@ -1,16 +1,15 @@
-import {Outlet} from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom";
 
 function App() {
-
-
+  const navigate = useNavigate();
   return (
     <div className="">
-      <div className="text-center font-extralight text-8xl py-5">cofoo</div>
+      <div className="text-center font-extralight text-8xl py-5 cursor-pointer" onClick={() => navigate("/")}>cofoo</div>
       <div className="max-w-xl border border-stone-400 mx-auto">
-        <Outlet />
+          <Outlet />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
