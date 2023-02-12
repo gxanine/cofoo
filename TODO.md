@@ -9,7 +9,7 @@
 - [x] Set up react-router-dom
 - [x] Create ItemDetail page
 - [x] Create a simple generic Button component
-- [ ] Create 'add to cart' (AddButton) button component
+- [x] Create 'add to cart' (AddButton) button component
 - [ ] Create cart context
 - [ ] Create simple 'cart state' component
 - [ ] Create a ItemModification component for modifying item before
