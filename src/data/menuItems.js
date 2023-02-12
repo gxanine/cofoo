@@ -19,4 +19,8 @@ const menuItems = [
   },
 ];
 
+export function getItemById(id) {
+  return menuItems.find((el) => el.id === +id);
+}
+
 export default menuItems;
