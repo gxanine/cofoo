@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCart, useCartDispatch } from "../context/CartContext";
 import { getItemById } from "../data/menuItems";
 import Button from "./ui/Button";
@@ -8,6 +8,7 @@ function ItemDetail() {
 
   const { name, description, price } = getItemById(id) ?? {};
 
+  const navigate = useNavigate();
   const cartDispatch = useCartDispatch();
   const cart = useCart();
   const existsInCart = cart.find((i) => i.itemId === id) ? true : false;
@@ -36,6 +37,9 @@ function ItemDetail() {
 
   return (
     <div className="flex flex-col">
+      <Button neutral onClick={() => navigate(-1)}>
+        ← Back to menu
+      </Button>
       <div className="flex text-3xl gap-2">
         <div className="font-bold">{name}</div>
         <div className="opacity-20">(#{id})</div>
