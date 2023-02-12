@@ -1,3 +1,4 @@
+import {useNavigate} from "react-router-dom";
 import {useCartDispatch} from "../context/CartContext";
 import { getItemById } from "../data/menuItems";
 import { classNames } from "../utils/classes";
@@ -9,6 +10,7 @@ function CartPopupItem({ id, itemId, qty }) {
   const price = (itemDetails.price * qty).toFixed(2);
 
   const cartDispatch = useCartDispatch();
+  const navigate = useNavigate();
 
   function deleteHandler(e) {
     cartDispatch({
@@ -20,6 +22,7 @@ function CartPopupItem({ id, itemId, qty }) {
   return (
     <>
       <div
+        onClick={() => navigate('/item/'+itemId)}
         className={classNames(
           "flex",
           "p-3 justify-center items-center gap-2",
