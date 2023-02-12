@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {useCart, useCartDispatch} from "../context/CartContext";
+import { useCart, useCartDispatch } from "../context/CartContext";
 import { getItemById } from "../data/menuItems";
 import Button from "./ui/Button";
 
@@ -14,17 +14,17 @@ function ItemDetail() {
 
   function addButtonHandler() {
     cartDispatch({
-      type: 'added',
+      type: "added",
       itemId: id,
-      qty: 1
-    })
+      qty: 1,
+    });
   }
   function decreaseButtonHandler() {
     cartDispatch({
-      type: 'removed',
+      type: "removed",
       itemId: id,
-      qty: 1
-    })
+      qty: 1,
+    });
   }
 
   function deleteAllHandler() {
@@ -44,7 +44,13 @@ function ItemDetail() {
       <div className="opacity-50">{description}</div>
       <div>
         <div className="flex justify-center my-5 gap-2">
-         <Button disabled={!existsInCart} danger onClick={decreaseButtonHandler}>－ Remove</Button>
+          <Button
+            disabled={!existsInCart}
+            danger
+            onClick={decreaseButtonHandler}
+          >
+            － Remove
+          </Button>
           <Button onClick={addButtonHandler}>＋ Add to cart</Button>
         </div>
         {existsInCart && (
