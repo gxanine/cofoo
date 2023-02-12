@@ -70,7 +70,7 @@ function CartOverlay({ cart }) {
       )}
       >
           {cart.length > 0 &&
-            cart.map((el) => <CartItem key={el.id} {...el} />)}
+            cart.map((el) => <CartItem hideCart={()=>setCartVisible(false)}key={el.id} {...el} />)}
           {cart.length === 0 && (
             <div className={classNames("text-center",
             "h-full flex flex-col justify-center items-center",

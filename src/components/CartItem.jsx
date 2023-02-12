@@ -4,7 +4,7 @@ import { getItemById } from "../data/menuItems";
 import { classNames } from "../utils/classes";
 import Button from "./ui/Button";
 
-function CartPopupItem({ id, itemId, qty }) {
+function CartPopupItem({ id, itemId, qty, hideCart }) {
   const itemDetails = getItemById(itemId);
   const name = itemDetails.name;
   const price = (itemDetails.price * qty).toFixed(2);
@@ -19,10 +19,15 @@ function CartPopupItem({ id, itemId, qty }) {
     })
   }
 
+  function itemClickHandler(e) {
+    hideCart();
+    navigate("/item/"+itemId);
+  }
+
   return (
     <>
       <div
-        onClick={() => navigate('/item/'+itemId)}
+        onClick={itemClickHandler}
         className={classNames(
           "flex",
           "p-3 justify-center items-center gap-2",
