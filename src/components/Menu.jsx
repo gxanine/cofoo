@@ -5,10 +5,10 @@ function Menu({ items, ...props }) {
 
   return (
     <>
-      <div className="text-xl">Menu</div>
+      <div className="text-9xl">Menu</div>
       <ul>
         {items.map((el, i) => (
-          <div key={i} className="border-b first:border-t last:border-b-0">
+          <div key={i} className="border-b py-2 last:border-b-0">
             <MenuItem {...el} />
           </div>
         ))}

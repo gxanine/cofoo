@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="">
       <div className="text-center font-extralight text-8xl py-5 cursor-pointer" onClick={() => navigate("/")}>cofoo</div>
-      <div className="max-w-xl border border-stone-400 mx-auto">
+      <div className="max-w-xl mx-auto">
           <Outlet />
       </div>
     </div>
