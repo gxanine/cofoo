@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -15,17 +16,25 @@ import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<App />}>
-      <Route path="/" element={<Menu items={menuItems} />} />
-      <Route path="/item/:id" element={<ItemDetail />} />
+    <Route element={<CartProviderLayout />}>
+      <Route element={<App />}>
+        <Route path="/" element={<Menu items={menuItems} />} />
+        <Route path="/item/:id" element={<ItemDetail />} />
+      </Route>
     </Route>
   )
 );
 
+function CartProviderLayout() {
+  return (
+    <CartProvider>
+      <Outlet />
+    </CartProvider>
+  );
+}
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router}/>
-    </CartProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
