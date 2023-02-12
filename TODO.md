@@ -18,5 +18,5 @@
 - [x] Add a reducer for decreasing qty
 - [x] Improve MenuItem component
 - [x] Improve ItemDetail component
-- [ ] Improve cart UI (suggestion: get rid of the popup and add an overlay)
+- [x] Improve cart UI (suggestion: get rid of the popup and add an overlay)
 - [ ] Create a ItemModification component for modifying item before adding to the cart
