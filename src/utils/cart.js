@@ -1,3 +1,5 @@
+import { getItemById } from "../data/menuItems";
+
 export function calculateCartItemTotalPrice(item) {
   const itemData = getItemById(item.itemId);
   const basePrice = itemData?.price;
