@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
+import Checkout from "./components/Checkout";
 import ItemDetail from "./components/ItemDetail";
 import Menu from "./components/Menu";
 import { CartProvider } from "./context/CartContext";
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route element={<App />}>
         <Route path="/" element={<Menu items={menuItems} />} />
         <Route path="/item/:id" element={<ItemDetail />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Route>
     </Route>
   )
