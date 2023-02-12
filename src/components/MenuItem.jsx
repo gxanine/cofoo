@@ -35,7 +35,7 @@ function MenuItem({ id, name, description, price, image, active, ...props }) {
 
   // Clear mouse selection when item is activated
   // to prevent accidental selection bug
-  useEffect(clearMouseSelection,[active])
+  useEffect(clearMouseSelection, [active]);
 
   function addButtonHandler(e) {
     cartDispatch({
@@ -47,7 +47,9 @@ function MenuItem({ id, name, description, price, image, active, ...props }) {
   }
 
   function customiseButtonHandler() {
-    navigate("/item/"+id);
+    navigate("/item/" + id, {state:{
+      from: "/"
+    }});
   }
 
   return (
