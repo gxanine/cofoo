@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getItemById } from "../data/menuItems";
+import {calculateCartItemTotalPrice, calculateCartTotalPrice} from "../utils/cart";
 import { classNames } from "../utils/classes";
 import CartItem from "./CartItem";
 import Button from "./ui/Button";
@@ -23,20 +24,6 @@ function CartOverlay({ cart }) {
   }, [cart]);
 
   const [cartVisible, setCartVisible] = useState(false);
-
-  function calculateCartItemTotalPrice(item) {
-    const itemData = getItemById(item.itemId);
-    const basePrice = itemData?.price;
-    const customisationsPrice = item?.customisations
-      ?.map((c) => c.priceExtra)
-      .reduce((a, b) => a + b, 0);
-    const qtyPrice = (basePrice + customisationsPrice) * item.qty;
-    return qtyPrice;
-  }
-  function calculateCartTotalPrice(cart) {
-    console.log(cart);
-    return cart.map(calculateCartItemTotalPrice).reduce((a, b) => a + b, 0);
-  }
 
   function viewCartHandler() {
     setCartVisible((prev) => !prev);
