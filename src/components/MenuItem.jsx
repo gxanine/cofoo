@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart, useCartDispatch } from "../context/CartContext";
 import { classNames } from "../utils/classes";
+import CartAdder from "./CartAdder";
 import Button from "./ui/Button";
 import NumberInput from "./ui/NumberInput";
 
@@ -82,31 +83,11 @@ function MenuItem({ id, name, description, price, active, ...props }) {
           "gap-3"
         )}
       >
-        <div className="gap-3 flex flex-1">
-          <div className="">
-            <NumberInput
-              onChange={setQty}
-              defaultValue={1}
-              min={0}
-              max={10}
-              value={qty}
-            />
-          </div>
-          <Button
-            className="flex-1"
-            small
-            disabled={qty <= 0}
-            onClick={addButtonHandler}
-          >
-            Add to cart
-          </Button>
+        <CartAdder itemId={id}>
           <Button neutral small onClick={customiseButtonHandler}>
             Customise
           </Button>
-        </div>
-        <div className="opacity-40">
-          Qty of this item already in the cart: {qtyAlreadyInCart}
-        </div>
+        </CartAdder>
       </div>
     </div>
   );
