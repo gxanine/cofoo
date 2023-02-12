@@ -21,3 +21,4 @@
 - [x] Improve cart UI (suggestion: get rid of the popup and add an overlay)
 - [x] Correct cart item click (clicking on delete navigates to item's detail)
 - [x] Create a ItemModification component for modifying item before adding to the cart
+- [ ] Create the checkout page
