@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import CartPopup from "../components/CartPopup";
 
 const CartContext = createContext([]);
 const CartDispatchContext = createContext(null);
@@ -10,7 +9,6 @@ export function CartProvider({ children }) {
   return (
     <CartContext.Provider value={cart}>
       <CartDispatchContext.Provider value={dispatch}>
-        <CartPopup cart={cart} />
         {children}
       </CartDispatchContext.Provider>
     </CartContext.Provider>
@@ -56,10 +54,10 @@ function cartReducer(cart, action) {
       if (existing && existing.qty - action.qty <= 0)
         return cart.filter((item) => item.id !== existing.id);
 
-      console.log("not removed")
+      console.log("not removed");
       // Remove qty
       return cart.map((item) => {
-        if (item.itemId === action.itemId) 
+        if (item.itemId === action.itemId)
           return {
             ...item,
             qty: item.qty - action.qty,
