@@ -11,7 +11,7 @@ function NumberInputRepresentation({value, onChange, min, max, ...props}) {
   }
 
   function increaseHandler() {
-    if (max === null && (value ?? 0) >= max) return;
+    if (max === null || (value ?? 0) >= max) return;
     onChange(value + 1);
   }
 
