@@ -22,3 +22,5 @@
 - [x] Correct cart item click (clicking on delete navigates to item's detail)
 - [x] Create a ItemModification component for modifying item before adding to the cart
 - [x] Create the checkout page
+- [ ] Handle 404
+- [ ] Display total price with the extra during custumisation
